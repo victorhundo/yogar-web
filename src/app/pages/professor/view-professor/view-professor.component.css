@@ -1,0 +1,22 @@
+.view-professor-container{
+    height: 100%;
+    width: 99%;
+    margin-left: 9px;
+    padding-top: 30px;
+}
+
+.borderCard{
+    border: solid rgb(178, 99, 209) 1px;
+    border-radius: 10px;
+}
+
+.maxWidth{
+    max-width: 100%;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+

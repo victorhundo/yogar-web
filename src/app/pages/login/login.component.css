@@ -1,0 +1,38 @@
+.login-container{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(237, 237, 248);
+}
+
+.login-card{
+    height: 520px;
+    width: 100%;
+    margin-top: 7%;
+    text-align: center;
+}
+
+img{
+    height: 300px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttton-login{
+    border: 0;
+    background-color: rgb(178, 99, 209);
+    width: 49%;
+    border-right: solid rgb(255, 255, 255) 1px;
+}
+
+.buttton-password{
+    border: 0;
+    background-color: rgb(178, 99, 209);
+    width: 49%;
+    border-left: solid rgb(255, 255, 255) 1px;
+
+}

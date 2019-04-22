@@ -1,0 +1,51 @@
+<div class="home-container container-fluid">
+
+  <div class="row no-gutters">
+
+    <div class="nav-bar col-12">
+
+      <div class="nav-bar-logo">
+        <img src="./../../../assets/favicon.ico" alt="icon">
+      </div>
+
+      <div class="nav-bar-middle">
+          <p>Yogar</p>
+      </div>
+
+      <div class="nav-bar-auth">
+        <p>Login/sair</p>
+      </div>
+
+    </div>
+  
+    <div class="side-bar col-2">
+
+
+      <!-- Item de uma lista e seus subitens -->
+      <div class="list-group">
+          <button (click)="professorFlag = !professorFlag" type="button" class="list-group-item list-group-item-action">
+            Professores
+          </button>
+          <div *ngIf="professorFlag">
+              <div class="list-group">
+                  <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                    Listar
+                  </button>
+                  <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                    Registrar
+                  </button>
+                </div>
+          </div>   
+      </div>
+
+    </div>
+  
+    <div class="page-container col-10">
+      <!-- Aqui ficam as paginas dinámicas -->
+      <router-outlet></router-outlet>
+      
+    </div>
+
+  </div>
+
+</div>
