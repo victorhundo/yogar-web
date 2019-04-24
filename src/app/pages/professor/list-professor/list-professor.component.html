@@ -6,33 +6,27 @@
 
   <div class="list">
     <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Professor 1
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let professor of professores">
+        {{professor.primeiroNome}}
         <div>
-            <i (click)="routerTo('view/professor/',0)" class="material-icons">visibility</i>
-            <i (click)="routerTo('edit/professor/',0)" routerLink="edit/professor/0" class="material-icons">edit</i>
-            <i  class="material-icons">delete</i>
+              <i (click)="routerTo('view/professor/',professor.uuid)" class="material-icons">visibility</i>
+            <!-- (click)="routerTo('edit/professor/',professor.id)" routerLink="edit/professor/0" -->
+            <i  class="material-icons icon-disabled">edit</i>
+            <i (click)="deleteModalFlagF(professor.uuid)" class="material-icons">delete</i>
         </div>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Professor 1
-        <div>
-            <i class="material-icons">visibility</i>
-            <i class="material-icons">edit</i>
-            <i class="material-icons">delete</i>
-        </div>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Professor 1
-        <div>
-            <i class="material-icons">visibility</i>
-            <i class="material-icons">edit</i>
-            <i class="material-icons">delete</i>
-        </div>
-        
-      </li>
-          
+      </li>          
     </ul>
+  </div>
+
+  <div *ngIf="deleteModalFlag" class="card confirm-delete">
+    <div class="card-header">
+      <h5>Deseja mesmo deletar o Professor?</h5>
+    </div>
+    <div class="card-body">
+      <button (click)="delete()" class="btn btn-primary delete-button">Sim</button>
+      <button (click)="deleteModalFlagF()" class="btn btn-primary">Não</button>
+    </div>
   </div>
 
 </div>

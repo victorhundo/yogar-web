@@ -32,7 +32,19 @@ button:hover{
 }
 
 .confere{
-    font-size: 20px;
+    font-size: 25px;
     background-color: inherit;
     border: none;    
+}
+
+.button-disabled{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.button-disabled:hover{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
 }

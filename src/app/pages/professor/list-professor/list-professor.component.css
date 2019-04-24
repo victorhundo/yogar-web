@@ -7,3 +7,42 @@
 .header{
     text-align: center;
 }
+
+.icon-disabled{
+    color: rgb(131, 115, 138);
+    cursor: wait;
+}
+
+.material-icons{
+    cursor: pointer;
+}
+
+.confirm-delete{
+    position: fixed;
+    /* height: 30%; */
+    width: 20%;
+    top: 30%;
+    left: 50%;
+    z-index: 999;
+}
+
+button{
+    width: 50%;
+    background-color: rgb(160, 96, 219);
+    border-color: rgb(178, 99, 209);
+}
+
+button:hover{
+    background-color: rgb(138, 46, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.delete-button{
+    background-color: rgb(255, 61, 110);
+    border-color: rgb(255, 0, 0);
+}
+
+.delete-button:hover{
+    background-color: rgb(226, 26, 76);
+    border-color: rgb(255, 0, 0);
+}

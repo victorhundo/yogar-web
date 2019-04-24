@@ -20,3 +20,45 @@
     justify-content: flex-end;
 }
 
+button{
+    float: right;
+    background-color: rgb(160, 96, 219);
+    border-color: rgb(178, 99, 209);
+}
+
+button:hover{
+    float: right;
+    background-color: rgb(138, 46, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.button-disabled{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.button-disabled:hover{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.confirm-delete{
+    position: fixed;
+    /* height: 30%; */
+    width: 20%;
+    top: 30%;
+    left: 50%;
+    z-index: 999;
+}
+
+.delete-button{
+    background-color: rgb(255, 61, 110);
+    border-color: rgb(255, 0, 0);
+}
+
+.delete-button:hover{
+    background-color: rgb(226, 26, 76);
+    border-color: rgb(255, 0, 0);
+}

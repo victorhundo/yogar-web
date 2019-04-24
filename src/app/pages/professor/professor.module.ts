@@ -4,16 +4,20 @@ import { ViewProfessorComponent } from './view-professor/view-professor.componen
 import { RegisterProfessorComponent } from './register-professor/register-professor.component';
 import { ListProfessorComponent } from './list-professor/list-professor.component';
 import { ProfessorService } from './professor-service.service';
+import { FormsModule } from '@angular/forms';
+import { UpdateProfessorComponent } from './update-professor/update-professor.component';
 
 @NgModule({
-  declarations: [ViewProfessorComponent, RegisterProfessorComponent, ListProfessorComponent],
+  declarations: [ViewProfessorComponent, RegisterProfessorComponent, ListProfessorComponent, UpdateProfessorComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
-  exports: [ 
+  exports: [
     ViewProfessorComponent,
     ListProfessorComponent,
-    RegisterProfessorComponent
+    RegisterProfessorComponent,
+    UpdateProfessorComponent
   ],
   providers: [ProfessorService]
 })

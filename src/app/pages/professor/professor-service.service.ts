@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ProfessorDto, ProfessorRegisterDto } from 'src/app/models/professor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +10,23 @@ export class ProfessorService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get<any>('www.api.com/professores');
+  getAll(): Observable<ProfessorDto[]> {
+    return this.http.get<ProfessorDto[]>('http://api.yogar.splab.ufcg.edu.br/professores');
   }
 
-  get(id: number): Observable<any> {
-    return this.http.get<any>(`www.api.com/professores/${id}`);
+  get(id: number): Observable<ProfessorDto[]> {
+    return this.http.get<ProfessorDto[]>(`http://api.yogar.splab.ufcg.edu.br/professores/${id}`);
   }
 
-  register(prof: any): Observable<any> {
-    return this.http.post<any>(`www.api.com/professores/`, prof);
+  register(prof: ProfessorRegisterDto): Observable<any> {
+    return this.http.post<any>(`http://api.yogar.splab.ufcg.edu.br/professores/`, prof);
   }
 
-  update(id: number, prof: any): Observable<any> {
-    return this.http.put<any>(`www.api.com/professores/${id}`, prof);
+  update(id: number, prof: ProfessorDto): Observable<ProfessorDto> {
+    return this.http.put<ProfessorDto>(`http://api.yogar.splab.ufcg.edu.br/professores/${id}`, prof);
   }
 
-  delete(id: number): Observable<any>{
-    return this.http.delete<any>(`www.api.com/professores/${id}`);
+  delete(id: number): Observable<ProfessorDto>{
+    return this.http.delete<ProfessorDto>(`http://api.yogar.splab.ufcg.edu.br/professores/${id}`);
   }
 }

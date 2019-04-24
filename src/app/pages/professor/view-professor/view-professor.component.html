@@ -1,25 +1,58 @@
 <div class="view-professor-container">
-    <div class="container maxWidth">
-      <div class="row borderCard">
 
-        <div class="col-12 form-row">
-          <div class="form-group col-12">
-              <label for="nome">Nome</label>
-              <h2>Nome do professor</h2>
-            </div>
-        
-            <div class="form-group col-12">
-                <label for="nome">Email</label>
-                <h2>Email do professor</h2>
-              </div>
-        
-            <div class="form-group col-12 buttons">
-                <button>Editar</button>
-                <button>Remover</button>
-            </div>
+  <div class="container maxWidth">
+    <div class="row borderCard">
+
+      <div class="col-12 form-row">
+        <div class="form-group col-6">
+          <label for="nome">Nome</label>
+          <h2>{{professor.primeiroNome}}</h2>
+        </div>
+    
+        <div class="form-group col-6">
+          <label for="nome">Email</label>
+          <h2>{{professor.email}}</h2>
+        </div>
+
+        <div class="form-group col-6">
+          <label for="nome">Rua</label>
+          <p>{{professor.rua}}</p>
+        </div>
+      
+        <div class="form-group col-2">
+          <label for="nome">Cidade</label>
+          <p>{{professor.cidade}}</p>
+        </div>
+
+        <div class="col-2 form-group">
+          <label for="inputState">Estado:</label>
+          <p>{{professor.estado}}</p>
+        </div>
+
+        <div class="form-group col-2">
+          <label for="nome">Cep</label>
+          <p>{{professor.cep}}</p>
+        </div>
+    
+        <div class="form-group col-12">
+          <button  (click)="deleteModalFlagF()" type="button" class="btn btn-primary">Deletar</button>
+          <button  type="button" disabled class="btn btn-primary button-disabled">Editar</button>
         </div>
   
       </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="deleteModalFlag" class="card confirm-delete">
+      <div class="card-header">
+        <h5>Deseja mesmo deletar o Professor?</h5>
+      </div>
+      <div class="card-body">
+        <button (click)="delete()" class="btn btn-primary delete-button">Sim</button>
+        <button (click)="deleteModalFlagF()" class="btn btn-primary">Não</button>
+      </div>
     </div>
   
-  </div>
+</div>
+ 
