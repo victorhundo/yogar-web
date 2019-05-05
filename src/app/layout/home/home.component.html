@@ -13,29 +13,96 @@
       </div>
 
       <div class="nav-bar-auth">
-        <p>Login/sair</p>
+        <a (click)="logout()">{{auth.isLogged?'Entrar':'Sair'}}</a>
       </div>
 
     </div>
   
     <div class="side-bar col-2">
 
+      <!-- Item de lições exclusivas pra adm -->
+      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
+        <button (click)="licoesFlag = !licoesFlag" type="button" class="list-group-item list-group-item-action">
+          Lições
+        </button>
+        <div *ngIf="licoesFlag">
+            <div class="list-group">
+                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Ver Todas
+                </button>
+                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Lista Para Aprovação
+                </button>
+              </div>
+        </div>   
+      </div>
 
-      <!-- Item de uma lista e seus subitens -->
-      <div class="list-group">
+      <!-- Item de feed exclusiva para adm -->
+      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
+        <button (click)="feedFlag = !feedFlag" type="button" class="list-group-item list-group-item-action">
+          Feed
+        </button>
+        <div *ngIf="feedFlag">
+            <div class="list-group">
+                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Ver Feed
+                </button>
+                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Lista Para Aprovação
+                </button>
+              </div>
+        </div>   
+      </div>
+
+      <!-- Item de professores exclusivos para adm -->
+      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
           <button (click)="professorFlag = !professorFlag" type="button" class="list-group-item list-group-item-action">
             Professores
           </button>
           <div *ngIf="professorFlag">
               <div class="list-group">
                   <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                    Listar
+                    Ver Todos
                   </button>
                   <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                    Registrar
+                    Registrar Novo Professor
                   </button>
                 </div>
           </div>   
+      </div>
+
+      <!-- Item de lições exclusivos para prof -->
+      <div *ngIf="auth.typeUser == 'prf'" class="list-group">
+        <button (click)="professorLicoesFlag = !professorLicoesFlag" type="button" class="list-group-item list-group-item-action">
+          Lições
+        </button>
+        <div *ngIf="professorLicoesFlag">
+            <div class="list-group">
+                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Ver Lições
+                </button>
+                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Adicionar Lições
+                </button>
+              </div>
+        </div>   
+      </div>
+
+      <!-- Item de feed exclusivo para prof -->
+      <div *ngIf="auth.typeUser == 'prf'" class="list-group">
+        <button (click)="professorFeedFlag = !professorFeedFlag" type="button" class="list-group-item list-group-item-action">
+          Feed
+        </button>
+        <div *ngIf="professorFeedFlag">
+            <div class="list-group">
+                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Ver Feed
+                </button>
+                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Adicionar Post
+                </button>
+              </div>
+        </div>   
       </div>
 
     </div>

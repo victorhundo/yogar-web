@@ -38,6 +38,7 @@
     text-align: right;
     align-self: center;    
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .side-bar{
