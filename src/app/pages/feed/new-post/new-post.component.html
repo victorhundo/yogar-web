@@ -1,0 +1,31 @@
+<div class="new-post-container">
+
+  <div class="header">
+    <h1>Nova Postagem</h1>
+  </div>
+
+  <div class="container maxWidth">
+    <div class="row borderCard">
+
+      <div class="col-12 form-row">
+        <div class="form-group col-12">
+          <label for="titulo">Título</label>
+          <input [(ngModel)]="post.titulo" class="form-control" type="text" name="titulo" id="titulo">
+        </div>
+    
+        <div class="form-group col-12">
+          <label for="nome">Conteúdo</label>
+          <textarea [(ngModel)]="post.texto" class="form-control" type="text" name="conteudo" id="conteudo"></textarea>
+          <p *ngIf="postAddFlag">Post Oublicado com Sucesso! Publique outro!</p>
+        </div>
+    
+        <div class="form-group col-12">
+          <button (click)="publicar()" type="button" class="btn btn-primary">Publicar</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

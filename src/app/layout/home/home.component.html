@@ -9,7 +9,7 @@
       </div>
 
       <div class="nav-bar-middle">
-          <p>Yogar</p>
+          <p>Yogar - {{auth.getUserName()}}</p>
       </div>
 
       <div class="nav-bar-auth">
@@ -21,7 +21,7 @@
     <div class="side-bar col-2">
 
       <!-- Item de lições exclusivas pra adm -->
-      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
+      <div *ngIf="auth.isAdm()" class="list-group">
         <button (click)="licoesFlag = !licoesFlag" type="button" class="list-group-item list-group-item-action">
           Lições
         </button>
@@ -38,16 +38,16 @@
       </div>
 
       <!-- Item de feed exclusiva para adm -->
-      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
+      <div *ngIf="auth.isAdm()" class="list-group">
         <button (click)="feedFlag = !feedFlag" type="button" class="list-group-item list-group-item-action">
           Feed
         </button>
         <div *ngIf="feedFlag">
             <div class="list-group">
-                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Ver Feed
                 </button>
-                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Lista Para Aprovação
                 </button>
               </div>
@@ -55,7 +55,7 @@
       </div>
 
       <!-- Item de professores exclusivos para adm -->
-      <div *ngIf="auth.typeUser == 'adm'" class="list-group">
+      <div *ngIf="auth.isAdm()" class="list-group">
           <button (click)="professorFlag = !professorFlag" type="button" class="list-group-item list-group-item-action">
             Professores
           </button>
@@ -95,10 +95,10 @@
         </button>
         <div *ngIf="professorFeedFlag">
             <div class="list-group">
-                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Ver Feed
                 </button>
-                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="new/post" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Adicionar Post
                 </button>
               </div>
