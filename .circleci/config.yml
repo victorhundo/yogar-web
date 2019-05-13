@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Deployment
           command: |
-            ssh -oStrictHostKeyChecking=no vhugo@csi.splab.ufcg.edu.br /opt/yogar/yogar-ionic-prod/run.sh
+            ssh -oStrictHostKeyChecking=no vhugo@csi.splab.ufcg.edu.br /opt/yogar/yogar-web-prod/run.sh
 
 workflows:
   version: 2
