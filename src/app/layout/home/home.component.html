@@ -27,17 +27,17 @@
         </button>
         <div *ngIf="licoesFlag">
             <div class="list-group">
-                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Ver Todas
                 </button>
-                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
+                <button routerLink="" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Lista Para Aprovação
                 </button>
               </div>
         </div>   
       </div>
 
-      <!-- Item de feed exclusiva para adm -->
+      <!-- Item de feed exclusiva para adm
       <div *ngIf="auth.isAdm()" class="list-group">
         <button (click)="feedFlag = !feedFlag" type="button" class="list-group-item list-group-item-action">
           Feed
@@ -52,7 +52,7 @@
                 </button>
               </div>
         </div>   
-      </div>
+      </div> -->
 
       <!-- Item de professores exclusivos para adm -->
       <div *ngIf="auth.isAdm()" class="list-group">
@@ -72,7 +72,7 @@
       </div>
 
       <!-- Item de lições exclusivos para prof -->
-      <div *ngIf="auth.typeUser == 'prf'" class="list-group">
+      <div *ngIf="auth.isProf()" class="list-group">
         <button (click)="professorLicoesFlag = !professorLicoesFlag" type="button" class="list-group-item list-group-item-action">
           Lições
         </button>
@@ -89,7 +89,7 @@
       </div>
 
       <!-- Item de feed exclusivo para prof -->
-      <div *ngIf="auth.typeUser == 'prf'" class="list-group">
+      <div *ngIf="auth.isProf()" class="list-group">
         <button (click)="professorFeedFlag = !professorFeedFlag" type="button" class="list-group-item list-group-item-action">
           Feed
         </button>

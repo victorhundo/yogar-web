@@ -20,7 +20,7 @@ export class RegisterProfessorComponent implements OnInit {
   }
 
   register() {
-    
+    this.professor.login.username = this.professor.nome.primeiro;
     this.profService.register(this.professor).subscribe(resp =>{
       console.log(resp);
       // this.professor.nome.primeiro = resp.primeiroNome;

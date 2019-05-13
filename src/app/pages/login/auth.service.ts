@@ -3,6 +3,7 @@ import { LoginModel } from 'src/app/models/auth.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { API } from './../../API';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,7 @@ export class AuthService {
 
   login(loginModel: LoginModel) {
     console.log(loginModel);
-    this.http.post<any>(`http://api.yogar.splab.ufcg.edu.br/auth/login`, loginModel).subscribe(
+    this.http.post<any>(`${API}/auth/login`, loginModel).subscribe(
       result => {
         console.log(result);
         this.isLoggedFlag = true;
@@ -67,6 +68,7 @@ export class AuthService {
   logout() {
     this.isLoggedFlag = false;
     localStorage.clear();
+    // this.router.navigate(['/']);
   }
 
   isAdm() {
@@ -84,6 +86,10 @@ export class AuthService {
       return this.user.username;
     }
 
+  }
+
+  getId(){
+    return this.user.uuid;
   }
 
   private saveToken(value: any) {

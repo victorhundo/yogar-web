@@ -2,19 +2,17 @@
   <div class="row no-gutters">
 
     <!-- cada item da lista -->
-    <div class="col-12 card">
+    <div *ngFor="let post of listaPost" class="col-12 card">
       <div class="card-header flex">
-        <h5 class="title">Primeiro post</h5> 
-        <h5 class="data">22/12/22</h5>
+        <h5 class="title">{{post.titulo}}</h5> 
+        <h5 class="data">{{post.data}}</h5>
       </div>
       <div class="card-body">
-        <p>Esse é o primeiro post do aplicativo</p>
+        <p>{{post.texto}}</p>
       </div>
       <div class="card-footer">
         aqui ficarão as opcões
       </div>
-
-
     </div>
 
   </div>
