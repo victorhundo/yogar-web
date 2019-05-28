@@ -4,7 +4,7 @@ export class Post {
     data: string;
     titulo: string;
     texto: string;
-    uuidProfessor: number;
+    uuidProfessor: string;
 
     constructor() {
 
