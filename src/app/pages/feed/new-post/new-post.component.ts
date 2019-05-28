@@ -28,11 +28,11 @@ export class NewPostComponent implements OnInit {
       titulo: new FormControl(''),
       texto: new FormControl(''),
       theFile: new FormControl(null)
-    })
+    });
     this.post.uuidProfessor = this.auth.user.id;
   }
 
-  onFileSelect(event) {
+  onFileSelect( event) {
     console.log( this.uploadForm.get('theFile'))
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -41,7 +41,7 @@ export class NewPostComponent implements OnInit {
     }
   }
 
-  onSubmit(){
+  onSubmit() {
 
     const formData = new FormData();
     formData.append('theFile', this.uploadForm.get('theFile').value);
