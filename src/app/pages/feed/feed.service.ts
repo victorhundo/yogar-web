@@ -17,12 +17,16 @@ export class FeedService {
     return this.http.post<any>(`${API}/professores/${this.auth.getId()}/posts`, post);
   }
 
+  submit(post: FormData): Observable<Post> {
+    return this.http.post<any>(`${API}/professores/${this.auth.getId()}/posts`, post);
+  }
+
   getPostagens(): Observable<Post[]> {
     return this.http.get<Post[]>(`${API}/posts/`);
   }
 
   getListaAprovacao(): Observable<Post[]> {
-    return this.http.get<Post[]>(`http://api.yogar.splab.ufcg.edu.br/posts`);
+    return this.http.get<Post[]>(`${API}/posts`);
   }
 
   aprovar(post: Post) {

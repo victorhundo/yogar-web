@@ -4,28 +4,20 @@
     <h1>Nova Postagem</h1>
   </div>
 
-  <div class="container maxWidth">
-    <div class="row borderCard">
-
-      <div class="col-12 form-row">
-        <div class="form-group col-12">
-          <label for="titulo">Título</label>
-          <input [(ngModel)]="post.titulo" class="form-control" type="text" name="titulo" id="titulo">
-        </div>
-    
-        <div class="form-group col-12">
-          <label for="nome">Conteúdo</label>
-          <textarea [(ngModel)]="post.texto" class="form-control" type="text" name="conteudo" id="conteudo"></textarea>
-          <p *ngIf="postAddFlag">Post Oublicado com Sucesso! Publique outro!</p>
-        </div>
-    
-        <div class="form-group col-12">
-          <button (click)="publicar()" type="button" class="btn btn-primary">Publicar</button>
-        </div>
-
+  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Títutlo" >
       </div>
-
-    </div>
-  </div>
+      <div class="form-group">
+        <textarea type="text" class="form-control" name="texto" id="texto" placeholder="Conteúdo" ></textarea>
+      </div>
+      <div class="form-group">
+          <label for="image">Imagem</label><br />
+          <input class="btn btn-primary" type="file" name="theFile" id="theFile" (change)="onFileSelect($event)">
+      </div>
+      <div class="form-group">
+        <button  type="submit" class="btn btn-primary">Publicar</button>
+      </div>
+  </form>
 
 </div>
