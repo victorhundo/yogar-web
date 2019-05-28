@@ -2,16 +2,27 @@
   <div class="row no-gutters">
 
     <!-- cada item da lista -->
-    <div *ngFor="let post of listaPost" class="col-12 card">
+    <div *ngFor="let post of listaPost" class="col-12 card post">
       <div class="card-header flex">
         <h5 class="title">{{post.titulo}}</h5> 
-        <h5 class="data">{{post.data}}</h5>
+        <h5 class="data">{{post.data | date:'dd/MM/yyyy'}}</h5>
       </div>
       <div class="card-body">
         <p>{{post.texto}}</p>
       </div>
       <div class="card-footer">
-        aqui ficarão as opcões
+        <button (click)="edit(post)" class="btn btn-primary edit-button">Editar</button>
+        <button (click)="deleteModalFlagF(post.id)" class="btn btn-primary delete-button">Excluir</button>
+      </div>
+    </div>
+
+    <div *ngIf="deleteModalFlag" class="card confirm-delete">
+      <div class="card-header">
+        <h5>Deseja mesmo deletar o Post?</h5>
+      </div>
+      <div class="card-body">
+        <button (click)="delete()" class="btn btn-primary delete-button">Sim</button>
+        <button (click)="deleteModalFlagF()" class="btn btn-primary edit-button">Não</button>
       </div>
     </div>
 

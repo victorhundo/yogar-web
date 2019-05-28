@@ -10,6 +10,7 @@ import { FeedComponent } from './pages/feed/feed/feed.component';
 import { ViewPostComponent } from './pages/feed/view-post/view-post.component';
 import { NewPostComponent } from './pages/feed/new-post/new-post.component';
 import { EditPostComponent } from './pages/feed/edit-post/edit-post.component';
+import { NewLicaoComponent } from './pages/licoes/new-licao/new-licao.component';
 
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },
@@ -23,6 +24,11 @@ const routes: Routes = [
   { path: 'view/post', component: ViewPostComponent},
   { path: 'new/post', component: NewPostComponent},
   { path: 'edit/post', component: EditPostComponent},
+
+  { path: 'list/licao', component: NewLicaoComponent },
+  { path: 'view/licao', component: NewLicaoComponent},
+  { path: 'new/licao', component: NewLicaoComponent},
+  { path: 'edit/licao', component: NewLicaoComponent},
 ];
 
 @NgModule({

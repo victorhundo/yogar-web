@@ -70,24 +70,7 @@
                 </div>
           </div>   
       </div>
-
-      <!-- Item de lições exclusivos para prof -->
-      <div *ngIf="auth.isProf()" class="list-group">
-        <button (click)="professorLicoesFlag = !professorLicoesFlag" type="button" class="list-group-item list-group-item-action">
-          Lições
-        </button>
-        <div *ngIf="professorLicoesFlag">
-            <div class="list-group">
-                <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Ver Lições
-                </button>
-                <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Adicionar Lições
-                </button>
-              </div>
-        </div>   
-      </div>
-
+      
       <!-- Item de feed exclusivo para prof -->
       <div *ngIf="auth.isProf()" class="list-group">
         <button (click)="professorFeedFlag = !professorFeedFlag" type="button" class="list-group-item list-group-item-action">
@@ -100,6 +83,23 @@
                 </button>
                 <button routerLink="new/post" type="button" class="list-group-item list-group-item-action sub-list-item">
                   Adicionar Post
+                </button>
+              </div>
+        </div>   
+      </div>
+
+      <!-- Item de feed exclusivo para prof -->
+      <div *ngIf="auth.isProf()" class="list-group">
+        <button (click)="professorLicaoFlag = !professorLicaoFlag" type="button" class="list-group-item list-group-item-action">
+          Lições
+        </button>
+        <div *ngIf="professorLicaoFlag">
+            <div class="list-group">
+                <button routerLink="list/licao" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Ver Lições
+                </button>
+                <button routerLink="new/licao" type="button" class="list-group-item list-group-item-action sub-list-item">
+                  Adicionar Lição
                 </button>
               </div>
         </div>   

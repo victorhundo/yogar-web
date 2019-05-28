@@ -40,13 +40,9 @@ button{
     float: right;
     background-color: rgb(160, 96, 219);
     border-color: rgb(178, 99, 209);
+    margin-left: 1px;
 }
 
-button:hover{
-    float: right;
-    background-color: rgb(138, 46, 223);
-    border-color: rgb(178, 99, 209);
-}
 
 .maxWidth{
     max-width: 100%;
@@ -54,4 +50,25 @@ button:hover{
 
 textarea{
     height: 300px;
+}
+
+.post{
+    margin-bottom: 15px;
+}
+
+.delete-button{
+    background-color: #c55b5b;
+}
+
+.edit-button{
+    background-color: blueviolet;
+}
+
+.confirm-delete{
+    position: fixed;
+    /* height: 30%; */
+    width: 20%;
+    top: 30%;
+    left: 50%;
+    z-index: 999;
 }

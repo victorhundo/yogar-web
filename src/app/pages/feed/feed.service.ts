@@ -18,27 +18,19 @@ export class FeedService {
   }
 
   getPostagens(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${API}/posts/`);
+    return this.http.get<Post[]>(`${API}/professores/${this.auth.getId()}/posts`);
   }
 
-  getListaAprovacao(): Observable<Post[]> {
-    return this.http.get<Post[]>(`http://api.yogar.splab.ufcg.edu.br/posts`);
+  getPost(id: number): Observable<Post> {
+    return this.http.get<Post>(`${API}/professores/${this.auth.getId()}/posts/${id}`);
   }
 
-  aprovar(post: Post) {
-
+  atualizar(postId: number, post: Post): Observable<Post> {
+    return this.http.put<Post>(`${API}/professores/${this.auth.getId()}/posts/${postId}`,post);
   }
 
-  reporvar() {
-
-  }
-
-  atualizar() {
-
-  }
-
-  remover(){
-
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${API}/professores/${this.auth.getId()}/posts/${id}`);
   }
 
 }

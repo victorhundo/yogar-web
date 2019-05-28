@@ -1,3 +1,4 @@
+import { LicoesModule } from './licoes/licoes.module';
 import { ProfessorModule } from './professor/professor.module';
 import { FeedModule } from './feed/feed.module';
 import { AuthService } from './login/auth.service';
@@ -20,6 +21,7 @@ export function tokenGetter() {
     FormsModule,
     HttpClientModule,
     ProfessorModule,
+    LicoesModule,
     FeedModule,
     JwtModule.forRoot({
       config: {
