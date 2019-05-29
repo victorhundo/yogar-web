@@ -30,7 +30,7 @@ export class FeedService {
   }
 
   atualizar(postId: number, post: Post): Observable<Post> {
-    return this.http.put<Post>(`${API}/professores/${this.auth.getId()}/posts/${postId}`,post);
+    return this.http.put<Post>(`${API}/professores/${this.auth.getId()}/posts/${postId}`, post);
   }
 
   delete(id: number): Observable<any> {

@@ -4,54 +4,56 @@
     <h1>Nova Lição</h1>
   </div>
 
-  <div class="container maxWidth">
-    <div class="row borderCard">
-
-      <div class="col-12 form-row">
-
-        <div class="form-group col-7">
-          <label for="titulo">Título</label>
-          <input  class="form-control" type="text" name="titulo" id="titulo">
-        </div>
+  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <div class="container maxWidth">
+      <div class="row borderCard">
+  
+        <div class="col-12 form-row">
+  
+          <div class="form-group col-7">
+            <label for="titulo">Título</label>
+            <input  class="form-control" type="text" name="titulo" id="titulo">
+          </div>
+          
+          <div class="form-group col-2">
+            <label for="nivel">Nível</label>
+            <input  class="form-control" type="number" name="nivel" id="nivel">
+          </div>
+  
+          <div class="form-group col-2">
+            <label for="recompensa">Recompensa</label>
+            <input  class="form-control" type="number" name="recomepnsa" id="recomepnsa">
+          </div>
         
-        <div class="form-group col-2">
-          <label for="nivel">Nível</label>
-          <input  class="form-control" type="number" name="nivel" id="nivel">
-        </div>
-
-        <div class="form-group col-2">
-          <label for="recompensa">Recompensa</label>
-          <input  class="form-control" type="number" name="recomepnsa" id="recomepnsa">
-        </div>
+          <div class="form-group col-1">
+            <label for="premium">Premium</label>
+            <input  class="form-control" type="checkbox" name="premium" id="premium">
+          </div>
       
-        <div class="form-group col-1">
-          <label for="premium">Premium</label>
-          <input  class="form-control" type="checkbox" name="premium" id="premium">
+          <div class="form-group col-12">
+            <label for="tag">Tags</label>
+            <input  class="form-control" type="text" name="tag" id="tag">
+          </div>
+  
+          <div class="form-group col-12">
+            <label for="descricao">Descrição</label>
+            <textarea  class="form-control" type="text" name="descricao" id="descricao"></textarea>
+          </div>
+  
+          <div class="form-group col-12">
+            <label for="aula">Aula</label>
+            <p>Atenção:O arquivo não pode ultrapassar os 30min e os 50Mb</p>
+            <input type="file" class="form-control" name="aula" id="aula" (change)="onFileSelect($event)">
+          </div>
+      
+          <div class="form-group col-12">
+            <button  type="submit" class="btn btn-primary">Publicar</button>
+          </div>
+  
         </div>
-    
-        <div class="form-group col-12">
-          <label for="tag">Tags</label>
-          <input  class="form-control" type="text" name="tag" id="tag">
-        </div>
-
-        <div class="form-group col-12">
-          <label for="descricao">Descrição</label>
-          <textarea  class="form-control" type="text" name="descricao" id="descricao"></textarea>
-        </div>
-
-        <div class="form-group col-12">
-          <label for="aula">Aula</label>
-          <p>Atenção:O arquivo não pode ultrapassar os 30min e os 50Mb</p>
-          <input type="file" class="form-control" name="aula" id="aula">
-        </div>
-    
-        <div class="form-group col-12">
-          <button  type="button" class="btn btn-primary">Publicar</button>
-        </div>
-
+  
       </div>
-
     </div>
-  </div>
+  </form>
 
 </div>
