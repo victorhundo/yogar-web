@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LicoesService {
 
-  private path = `professor/${this.auth.getId}/licoes`;
+  private path = `professores/${this.auth.getId()}/licoes`;
 
 constructor(private http: HttpClient,
             private auth: AuthService) { }
