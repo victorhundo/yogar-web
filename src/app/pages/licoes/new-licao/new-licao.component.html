@@ -4,7 +4,7 @@
     <h1>Nova Lição</h1>
   </div>
 
-  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="licaoForm" (ngSubmit)="onSubmit()">
     <div class="container maxWidth">
       <div class="row borderCard">
   
@@ -12,41 +12,42 @@
   
           <div class="form-group col-7">
             <label for="titulo">Título</label>
-            <input  class="form-control" type="text" name="titulo" id="titulo">
+            <input  class="form-control" type="text" formControlName="titulo" id="titulo">
           </div>
           
           <div class="form-group col-2">
             <label for="nivel">Nível</label>
-            <input  class="form-control" type="number" name="nivel" id="nivel">
+            <input  class="form-control" type="number" formControlName="nivel" id="nivel">
           </div>
   
           <div class="form-group col-2">
             <label for="recompensa">Recompensa</label>
-            <input  class="form-control" type="number" name="recomepnsa" id="recomepnsa">
+            <input  class="form-control" type="number" formControlName="recompensa" id="recomepnsa">
           </div>
         
           <div class="form-group col-1">
             <label for="premium">Premium</label>
-            <input  class="form-control" type="checkbox" name="premium" id="premium">
+            <input  class="form-control" type="checkbox" formControlName="ehPremium" id="premium">
           </div>
       
           <div class="form-group col-12">
             <label for="tag">Tags</label>
-            <input  class="form-control" type="text" name="tag" id="tag">
+            <input  class="form-control" type="text" formControlName="tag" id="tag">
           </div>
   
           <div class="form-group col-12">
             <label for="descricao">Descrição</label>
-            <textarea  class="form-control" type="text" name="descricao" id="descricao"></textarea>
+            <textarea  class="form-control" type="text" formControlName="descricao" id="descricao"></textarea>
           </div>
   
           <div class="form-group col-12">
             <label for="aula">Aula</label>
             <p>Atenção:O arquivo não pode ultrapassar os 30min e os 50Mb</p>
-            <input type="file" class="form-control" name="aula" id="aula" (change)="onFileSelect($event)">
+            <input type="file" class="form-control" id="aula" (change)="onFileSelect($event)">
           </div>
       
           <div class="form-group col-12">
+            <p *ngIf="sucessoFlag">Sua Lição foi enviada para o adminstrador com sucesso! Envie outra</p>
             <button  type="submit" class="btn btn-primary">Publicar</button>
           </div>
   

@@ -1,16 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 html{
-    height: 100%;
-    width: 100%;
+    height: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
     color: rgb(94, 9, 128);
+    overflow: hidden;
 }
 
 body{
-    height: 100%;
-    width: 100%;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: 100% !important;
+    width: 100% !important;
     color: rgb(94, 9, 128);
 }
 
 p{
     margin: 0;
+}
+
+video{
+    width: 100%;
+    height: 500px;
 }

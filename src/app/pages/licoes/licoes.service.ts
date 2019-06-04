@@ -10,33 +10,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LicoesService {
 
-  private path = `professor/${this.auth.getId}/licoes`;
+  private path = `professores/${this.auth.getId()}/licoes`;
 
 constructor(private http: HttpClient,
             private auth: AuthService) { }
 
-  publicar(post: Licao): Observable<any> {
+  // aprovação pro adm
+  aprovar(post: Licao): Observable<any> {
     return this.http.post<any>(`${API}/${this.path}`, post);
   }
 
+  // Submissão para o professores
   submit(post: FormData): Observable<any> {
     return this.http.post<any>(`${API}/${this.path}`, post);
   }
 
-  getPostagens(): Observable<any> {
-    return this.http.get<any>(`${API}/${this.auth}`);
+  // get todas de um professor
+  getAll(): Observable<Licao[]> {
+    return this.http.get<Licao[]>(`${API}/${this.path}`);
   }
 
-  getPost(id: number): Observable<any> {
-    return this.http.get<any>(`${API}/${this.auth}/${id}`);
+  get(id: number): Observable<Licao> {
+    return this.http.get<Licao>(`${API}/${this.path}/${id}`);
+  }
+
+  getVideo(id: number): Observable<any> {
+    return this.http.get<any>(`${API}/${this.path}/${id}`);
   }
 
   atualizar(id: number, post: any): Observable<any> {
-    return this.http.put<any>(`${API}/${this.auth}/${id}`, post);
+    return this.http.put<any>(`${API}/${this.path}/${id}`, post);
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${API}/${this.auth}/${id}`);
+    return this.http.delete(`${API}/${this.path}/${id}`);
   }
 
 }

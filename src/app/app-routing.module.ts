@@ -11,6 +11,7 @@ import { ViewPostComponent } from './pages/feed/view-post/view-post.component';
 import { NewPostComponent } from './pages/feed/new-post/new-post.component';
 import { EditPostComponent } from './pages/feed/edit-post/edit-post.component';
 import { NewLicaoComponent } from './pages/licoes/new-licao/new-licao.component';
+import { ListarLicoesComponent } from './pages/licoes/listar-licoes/listar-licoes.component';
 
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },
@@ -24,8 +25,8 @@ const routes: Routes = [
   { path: 'view/post', component: ViewPostComponent},
   { path: 'new/post', component: NewPostComponent},
   { path: 'edit/post', component: EditPostComponent},
-
-  { path: 'list/licao', component: NewLicaoComponent },
+  
+  { path: 'list/licao', component: ListarLicoesComponent },
   { path: 'view/licao', component: NewLicaoComponent},
   { path: 'new/licao', component: NewLicaoComponent},
   { path: 'edit/licao', component: NewLicaoComponent},

@@ -1,0 +1,39 @@
+<div class="licoes-container container">
+    <div class="row no-gutters">
+
+      <div class="col-12 text-center">
+        <h1>Suas Lições</h1>
+      </div>
+  
+      <!-- cada item da lista -->
+      <div *ngFor="let licao of licoes" class="col-12 card post">
+        <div class="card-header flex">
+          <h5 class="title">{{licao.titulo}}</h5> 
+          <h5 class="data">Nivel:{{licao.nivel}}  {{licao.ehPremium?' Premium':' Gratuito'}}</h5>
+        </div>
+        <div class="card-body">
+          <video controls>
+            <source [src]="getVideo(licao.id)">
+            Your browser does not support the video tag.
+          </video>
+          <h4>Descricao</h4>
+          <p>{{licao.descricao}}</p>
+        </div>  
+        <div class="card-footer">
+          <button class="btn btn-primary edit-button desabled">Editar</button>
+          <button (click)="deleteModalFlagF(licao.id)" class="btn btn-primary delete-button">Excluir</button>
+        </div>
+      </div>
+  
+      <div *ngIf="deleteModalFlag" class="card confirm-delete">
+        <div class="card-header">
+          <h5>Deseja mesmo deletar o Post?</h5>
+        </div>
+        <div class="card-body">
+          <button (click)="delete()" class="btn btn-primary delete-button">Sim</button>
+          <button (click)="deleteModalFlagF()" class="btn btn-primary edit-button">Não</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

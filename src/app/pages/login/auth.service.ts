@@ -88,7 +88,7 @@ export class AuthService {
 
   }
 
-  getId(){
+  getId() {
     return this.user.uuid;
   }
 

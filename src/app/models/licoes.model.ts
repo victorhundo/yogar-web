@@ -7,6 +7,6 @@ export class Licao {
     ehPremium: boolean;
     tag: string;
     descricao: string;
-    aula: File;
-
+    theFile: File;
 }
+
