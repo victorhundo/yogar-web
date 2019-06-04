@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LicoesService } from '../licoes.service';
+import { LicoesService } from './../licoes.service';
 import { AuthService } from '../../login/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +20,7 @@ export class NewLicaoComponent implements OnInit {
 
   ngOnInit() {
     //this.uploadForm = this.formBuilder.group({ titulo: [''], texto: [''], file: [null] })
+
     this.licaoForm = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
       nivel: new FormControl('', [Validators.required]),
@@ -28,6 +29,7 @@ export class NewLicaoComponent implements OnInit {
       tag: new FormControl('', [Validators.required]),
       descricao: new FormControl('', Validators.required),
       theFile: new FormControl(null,Validators.required)
+
     });
   }
 
@@ -43,6 +45,7 @@ export class NewLicaoComponent implements OnInit {
   onSubmit() {
 
     const formData = new FormData();
+
     formData.append('titulo', this.licaoForm.get('titulo').value);
     formData.append('nivel', this.licaoForm.get('nivel').value);
     formData.append('recompensa', this.licaoForm.get('recompensa').value);
@@ -50,6 +53,7 @@ export class NewLicaoComponent implements OnInit {
     formData.append('tag', this.licaoForm.get('tag').value);
     formData.append('descricao', this.licaoForm.get('descricao').value);
     formData.append('theFile', this.licaoForm.get('theFile').value);
+
 
 
     this.licaoService.submit(formData).subscribe( result => {
