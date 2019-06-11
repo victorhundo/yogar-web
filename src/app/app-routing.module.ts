@@ -12,6 +12,7 @@ import { NewPostComponent } from './pages/feed/new-post/new-post.component';
 import { EditPostComponent } from './pages/feed/edit-post/edit-post.component';
 import { NewLicaoComponent } from './pages/licoes/new-licao/new-licao.component';
 import { ListarLicoesComponent } from './pages/licoes/listar-licoes/listar-licoes.component';
+import { UpdateProfessorComponent } from './pages/professor/update-professor/update-professor.component';
 
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'list/professor', component: ListProfessorComponent },
   { path: 'view/professor', component: ViewProfessorComponent},
   { path: 'new/professor', component: RegisterProfessorComponent},
-  { path: 'edit/professor', component: RegisterProfessorComponent},
+  { path: 'edit/professor', component: UpdateProfessorComponent},
 
   { path: 'list/post', component: FeedComponent },
   { path: 'view/post', component: ViewPostComponent},

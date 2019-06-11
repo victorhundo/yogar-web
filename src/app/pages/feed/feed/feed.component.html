@@ -3,13 +3,20 @@
 
     <!-- cada item da lista -->
     <div *ngFor="let post of listaPost" class="col-12 card post">
+      <!-- Cabeçalho -->
       <div class="card-header flex">
         <h5 class="title">{{post.titulo}}</h5> 
         <h5 class="data">{{post.data | date:'dd/MM/yyyy'}}</h5>
       </div>
+      <!-- Imagem -->
+      <div class="card-body">
+          <img [src]="getImg(post.id)" alt="Imagem do post">
+        </div>
+      <!-- Descrição -->
       <div class="card-body">
         <p>{{post.texto}}</p>
       </div>
+      <!-- Botões -->
       <div class="card-footer">
         <button (click)="edit(post)" class="btn btn-primary edit-button">Editar</button>
         <button (click)="deleteModalFlagF(post.id)" class="btn btn-primary delete-button">Excluir</button>

@@ -5,18 +5,32 @@
   </div>
 
   <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <input type="text" formControlName="titulo" class="form-control" name="titulo" id="titulo" placeholder="Títutlo" >
-    </div>
-    <div class="form-group">
-      <textarea type="text" formControlName="texto" class="form-control" name="texto" id="texto" placeholder="Conteúdo" ></textarea>
-    </div>
-    <div class="form-group">
-        <label for="image">Imagem</label><br />
-        <input class="btn btn-primary" type="file" name="theFile" id="theFile" (change)="onFileSelect($event)">
-    </div>
-    <div class="form-group">
-      <button  type="submit" class="btn btn-primary">Publicar</button>
+    <div class="container maxWidth">
+      <div class="row borderCard">
+        <div class="col-12 form-row">
+
+          <div class="form-group col-12">
+            <label for="titulo">Titulo:</label>
+            <input type="text" formControlName="titulo" class="form-control" name="titulo" id="titulo" placeholder="Títutlo" >
+          </div>
+          
+          <div class="form-group col-12">
+            <label for="descricao">Descrição:</label>
+            <textarea type="text" formControlName="texto" class="form-control" name="texto" id="texto" placeholder="Conteúdo" ></textarea>
+          </div>
+          
+          <div class="form-group col-12">
+              <label for="image">Imagem</label><br />
+              <input class="form-control" type="file" name="theFile" id="theFile" (change)="onFileSelect($event)">
+          </div>
+          
+          <div class="form-group col-12">
+            <p *ngIf="sucessoFlag">Post publicado com sucesso! publique outro</p>
+            <button  type="submit" class="btn btn-primary">Publicar</button>
+          </div>
+
+        </div>
+      </div>
     </div>
   </form> 
 

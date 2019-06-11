@@ -1,3 +1,97 @@
-<p>
-  update-professor works!
-</p>
+<div class="update-professor-container">
+
+    <div class="header">
+      <h1>Seus Dados</h1>
+    </div>
+  
+    <div class="container maxWidth">
+      <div class="row borderCard">
+  
+        <div class="col-12 form-row">
+          <div class="form-group col-12">
+            <label for="nome">Nome</label>
+            <input [(ngModel)]="professor.primeiroNome" class="form-control" type="text" name="nome" id="nome">
+          </div>
+      
+          <div class="form-group col-12">
+            <label for="nome">Email</label>
+            <input [(ngModel)]="professor.email" class="form-control" type="text" name="email" id="email">
+          </div>
+  
+          <div class="form-group col-6">
+            <label for="nome">Rua</label>
+            <input [(ngModel)]="professor.rua" class="form-control" type="text" name="rua" id="rua">
+          </div>
+        
+          <div class="form-group col-2">
+            <label for="nome">Cidade</label>
+            <input [(ngModel)]="professor.cidade" class="form-control" type="text" name="cidade" id="cidade">
+          </div>
+  
+          <div class="col-2 form-group">
+            <label for="inputState">Estado:</label>
+            <select id="inputState" class="form-control" name="estado" [(ngModel)]="professor.estado">
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+              <option value="ES">Estrangeiro</option>
+            </select>
+          </div>
+  
+          <div class="form-group col-2">
+            <label for="nome">Cep</label>
+            <input [(ngModel)]="professor.cep" class="form-control" type="number" name="cep" id="cep">
+          </div>
+  
+  
+          <div class="form-group col-6">
+            <label for="nome">Senha</label>
+            <input [(ngModel)]="senha1" class="form-control" type="password" name="senha" id="senha">
+          </div>
+  
+          <div class="form-group col-5">
+            <label for="nome">Confirme Senha</label>
+            <input [(ngModel)]="senha2" class="form-control" type="password" name="senha" id="senha2">
+          </div>
+  
+          <div class="form-group col-1">
+            <label for="">Confere?</label>
+            <i *ngIf="senha1 == senha2" class="confere form-control material-icons">done</i>
+            <i *ngIf="senha1 != senha2" class="confere form-control material-icons">close</i>
+          </div>
+      
+          <div class="form-group col-12">
+            <button *ngIf="senha1 == senha2" (click)="update()" type="button" class="btn btn-primary">Atualizar</button>
+            <button *ngIf="senha1 != senha2" (click)="update()" disabled type="button" class="btn btn-primary button-disabled">Atualizar</button>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>

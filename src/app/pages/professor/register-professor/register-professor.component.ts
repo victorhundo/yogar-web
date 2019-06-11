@@ -1,6 +1,6 @@
 import { ProfessorService } from './../professor-service.service';
 import { Component, OnInit } from '@angular/core';
-import { Professor, ProfessorDto, ProfessorRegisterDto } from '../../../models/professor.model';
+import { ProfessorRegisterDto } from '../../../models/professor.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterProfessorComponent implements OnInit {
 
   professor: ProfessorRegisterDto = new ProfessorRegisterDto();
+  senha1 = null;
   senha2 = null;
 
   constructor(private profService: ProfessorService,
@@ -21,7 +22,7 @@ export class RegisterProfessorComponent implements OnInit {
 
   register() {
     this.professor.login.username = this.professor.nome.primeiro;
-    this.profService.register(this.professor).subscribe(resp =>{
+    this.profService.register(this.professor).subscribe(resp => {
       console.log(resp);
       // this.professor.nome.primeiro = resp.primeiroNome;
       // this.professor.nome.ultimo = resp.ultimoNome;

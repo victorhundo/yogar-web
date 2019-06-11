@@ -1,3 +1,4 @@
+import { AuthService } from './../../login/auth.service';
 import { Post } from './../../../models/post.model';
 import { FeedService } from './../feed.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,8 @@ export class FeedComponent implements OnInit {
   deleteUuid: number;
 
   constructor(private feedService: FeedService,
-              private router: Router) { }
+              private router: Router,
+              private auth: AuthService) { }
 
   ngOnInit() {
     this.feedService.getPostagens().subscribe(result => {
@@ -45,4 +47,7 @@ export class FeedComponent implements OnInit {
     });
   }
 
+  getImg(id:number){
+    return `http://api.yogar.splab.ufcg.edu.br/professores/${this.auth.getId()}/posts/${id}/img`;
+  }
 }

@@ -1,0 +1,50 @@
+.update-professor-container{
+    height: 100%;
+    width: 99%;
+    margin-left: 9px;
+    padding-top: 30px;
+}
+
+.header{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.borderCard{
+    border: solid rgb(178, 99, 209) 1px;
+    border-radius: 10px;
+}
+
+button{
+    float: right;
+    background-color: rgb(160, 96, 219);
+    border-color: rgb(178, 99, 209);
+}
+
+button:hover{
+    float: right;
+    background-color: rgb(138, 46, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.maxWidth{
+    max-width: 100%;
+}
+
+.confere{
+    font-size: 25px;
+    background-color: inherit;
+    border: none;    
+}
+
+.button-disabled{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.button-disabled:hover{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}

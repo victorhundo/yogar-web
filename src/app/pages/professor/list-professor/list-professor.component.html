@@ -10,9 +10,7 @@
       *ngFor="let professor of professores">
         {{professor.primeiroNome}}
         <div>
-              <i (click)="routerTo('view/professor/',professor.uuid)" class="material-icons">visibility</i>
-            <!-- (click)="routerTo('edit/professor/',professor.id)" routerLink="edit/professor/0" -->
-            <i  class="material-icons icon-disabled">edit</i>
+            <i (click)="routerTo('view/professor/',professor.uuid)" class="material-icons">visibility</i>
             <i (click)="deleteModalFlagF(professor.uuid)" class="material-icons">delete</i>
         </div>
       </li>          
