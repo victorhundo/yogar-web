@@ -21,9 +21,32 @@ export class EditPostComponent implements OnInit {
   ngOnInit() {
     this.post.id = this.activeRouter.snapshot.params.id;
     this.feddService.getPost(this.post.id).subscribe(result => {
-      this.post = result;
-      console.log(result);
+      this.post = result[0];
+      console.log(result[0]);
     });
+  }
+
+  atualizar() {
+// tslint:disable-next-line: forin
+    for (const val in this.post) {
+      console.log(val);
+      const valStr = val.toString;
+      let value = {
+        '"campo"': val,
+        '"valor"': this.post[val]
+      };
+      console.log(value);
+      this.feddService.atualizar(this.post.id,value).subscribe(
+        result => {
+          // this.post = result;
+          console.log(result);
+        },
+        error => {
+          console.log('Não foi possível atualizar', error);
+        }
+      );
+    };
+
   }
 
 }

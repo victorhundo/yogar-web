@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfessorService } from '../professor-service.service';
 import { Router } from '@angular/router';
-import { ProfessorRegisterDto } from 'src/app/models/professor.model';
+import { ProfessorRegisterDto, ProfessorDto } from 'src/app/models/professor.model';
 import { AuthService } from '../../login/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from '../../login/auth.service';
 })
 export class UpdateProfessorComponent implements OnInit {
 
-  professor: ProfessorRegisterDto = new ProfessorRegisterDto();
+  professor: ProfessorDto = new ProfessorDto();
   senha2 = null;
 
   constructor(private profService: ProfessorService,
@@ -20,21 +20,30 @@ export class UpdateProfessorComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.authService.user);
-    
+
     this.professor = this.authService.user;
   }
 
   update() {
-    this.professor.login.username = this.professor.nome.primeiro;
-    this.profService.register(this.professor).subscribe(resp => {
-      console.log(resp);
-      // this.professor.nome.primeiro = resp.primeiroNome;
-      // this.professor.nome.ultimo = resp.ultimoNome;
-      // this.professor.endereco.cep = resp.cep;
-      // this.professor.endereco.cidade = resp.cidade;
-      // this.professor.endereco.estado = resp.estado;
-      this.router.navigate(['list/professor']);
-    });
+
+// tslint:disable-next-line: forin
+    for (const val in this.professor) {
+      console.log(val);
+      let value = {
+        '"campo"': val,
+        '"valor"': this.professor[val]
+      };
+      console.log(value);
+      this.profService.update(this.authService.getId(),value).subscribe(
+        result => {
+          // this.post = result;
+          console.log(result);
+        },
+        error => {
+          console.log('Não foi possível atualizar', error);
+        }
+      );
+    };
   }
 
 }

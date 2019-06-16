@@ -29,7 +29,7 @@ export class FeedService {
     return this.http.get<Post>(`${API}/professores/${this.auth.getId()}/posts/${id}`);
   }
 
-  atualizar(postId: number, post: Post): Observable<Post> {
+  atualizar(postId: number, post: any): Observable<Post> {
     return this.http.put<Post>(`${API}/professores/${this.auth.getId()}/posts/${postId}`, post);
   }
 

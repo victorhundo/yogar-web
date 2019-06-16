@@ -51,7 +51,7 @@ export class NewPostComponent implements OnInit {
     this.feddService.submit(formData).subscribe( result =>{
       console.log(result);
       this.postAddFlag = true;
-      alert('Post Publicado com Sucesso');
+      this.uploadForm.reset();
     });
   }
 }
