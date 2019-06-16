@@ -9,13 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TokenInterceptor } from './token.interceptor';
+import { InitialComponent } from './initial/initial.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, InitialComponent],
   imports: [
     CommonModule,
     FormsModule,

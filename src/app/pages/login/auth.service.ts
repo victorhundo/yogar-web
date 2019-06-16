@@ -42,6 +42,7 @@ export class AuthService {
         this.isLoggedFlag = true;
         this.typeUser = result.type;
         this.user = result.user;
+        this.router.navigate(['']);
         localStorage.setItem('user', JSON.stringify(this.user));
         localStorage.setItem('token', result.token);
         localStorage.setItem('type', result.type);
@@ -68,7 +69,6 @@ export class AuthService {
   logout() {
     this.isLoggedFlag = false;
     localStorage.clear();
-    // this.router.navigate(['/']);
   }
 
   isAdm() {
