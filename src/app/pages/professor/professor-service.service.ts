@@ -23,7 +23,8 @@ export class ProfessorService {
     return this.http.post<any>(`${API}/professores/`, prof);
   }
 
-  update(id: number, prof: any): Observable<ProfessorDto> {
+  update(id: any, prof: any): Observable<ProfessorDto> {
+    console.log(id);
     return this.http.put<ProfessorDto>(`${API}/professores/${id}`, prof);
   }
 

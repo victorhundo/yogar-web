@@ -28,12 +28,12 @@ export class UpdateProfessorComponent implements OnInit {
 
 // tslint:disable-next-line: forin
     for (const val in this.professor) {
-      console.log(val);
+      // console.log(val);
       let value = {
-        '"campo"': val,
-        '"valor"': this.professor[val]
+        'campo': val,
+        'valor': this.professor[val]
       };
-      console.log(value);
+      // console.log(value);
       this.profService.update(this.authService.getId(),value).subscribe(
         result => {
           // this.post = result;
