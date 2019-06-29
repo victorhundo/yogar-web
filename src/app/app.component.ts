@@ -8,18 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'yogar-web';
 
   constructor(private authService: AuthService, private router: Router){
-
-  }
-
-  ngOnInit() {
-    if (!this.authService.isLoggedFlag &&
-         (window.location.pathname == '/')){
-      this.router.navigate(['index']);
-    }
+    this.gotoIndex();
   }
 
   isRoot(){
