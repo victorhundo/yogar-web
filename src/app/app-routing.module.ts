@@ -16,8 +16,9 @@ import { UpdateProfessorComponent } from './pages/professor/update-professor/upd
 import { InitialComponent } from './pages/initial/initial.component';
 
 const routes: Routes = [
-  // { path: 'login', component: LoginComponent },
   { path: '', component: InitialComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'index', component: InitialComponent },
   { path: 'list/professor', component: ListProfessorComponent },
   { path: 'view/professor', component: ViewProfessorComponent},
   { path: 'new/professor', component: RegisterProfessorComponent},
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'view/post', component: ViewPostComponent},
   { path: 'new/post', component: NewPostComponent},
   { path: 'edit/post', component: EditPostComponent},
-  
+
   { path: 'list/licao', component: ListarLicoesComponent },
   { path: 'view/licao', component: NewLicaoComponent},
   { path: 'new/licao', component: NewLicaoComponent},

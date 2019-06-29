@@ -69,6 +69,7 @@ export class AuthService {
   logout() {
     this.isLoggedFlag = false;
     localStorage.clear();
+    this.router.navigate(['index']);
   }
 
   isAdm() {
