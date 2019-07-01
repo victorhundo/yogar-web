@@ -13,6 +13,11 @@ export class NewLicaoComponent implements OnInit {
 
   licaoForm: FormGroup;
   sucessoFlag = false;
+  desafios = [
+     {"id": 0, "nome":'Sem desafio'},
+     {"id": 1, "nome":'urdhva hastasana'},
+     {"id": 2, "nome":'uttanasana padahastasana'},
+  ];
 
   constructor(private licaoService: LicoesService,
               private auth: AuthService,
@@ -27,9 +32,9 @@ export class NewLicaoComponent implements OnInit {
       recompensa: new FormControl('', [Validators.required]),
       ehPremium: new FormControl('', [Validators.required]),
       tag: new FormControl('', [Validators.required]),
+      desafio: new FormControl('', [Validators.required]),
       descricao: new FormControl('', Validators.required),
       theFile: new FormControl(null,Validators.required)
-
     });
   }
 
@@ -51,10 +56,11 @@ export class NewLicaoComponent implements OnInit {
     formData.append('recompensa', this.licaoForm.get('recompensa').value);
     formData.append('ehPremium', this.licaoForm.get('ehPremium').value);
     formData.append('tag', this.licaoForm.get('tag').value);
+    formData.append('desafio', this.licaoForm.get('desafio').value);
     formData.append('descricao', this.licaoForm.get('descricao').value);
     formData.append('theFile', this.licaoForm.get('theFile').value);
 
-
+    console.log(this.licaoForm.get('desafio').value)
 
     this.licaoService.submit(formData).subscribe( result => {
       console.log(result);
