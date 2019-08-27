@@ -14,6 +14,7 @@ import { NewLicaoComponent } from './pages/licoes/new-licao/new-licao.component'
 import { ListarLicoesComponent } from './pages/licoes/listar-licoes/listar-licoes.component';
 import { UpdateProfessorComponent } from './pages/professor/update-professor/update-professor.component';
 import { InitialComponent } from './pages/initial/initial.component';
+import { MensagemComponent } from './pages/mensagens/mensagem.component';
 
 const routes: Routes = [
   { path: '', component: InitialComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'view/licao', component: NewLicaoComponent},
   { path: 'new/licao', component: NewLicaoComponent},
   { path: 'edit/licao', component: NewLicaoComponent},
+  { path: 'mensagens', component: MensagemComponent},
 ];
 
 @NgModule({

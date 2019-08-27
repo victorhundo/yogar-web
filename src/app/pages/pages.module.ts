@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TokenInterceptor } from './token.interceptor';
 import { InitialComponent } from './initial/initial.component';
+import { MensagensModule } from './mensagens/mensagens.module';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -24,6 +25,7 @@ export function tokenGetter() {
     ProfessorModule,
     LicoesModule,
     FeedModule,
+    MensagensModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
