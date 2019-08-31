@@ -3,12 +3,12 @@
 
     <!-- Cabecalho -->
     <div class="col-12 text-center mensagem-cabecalho">
-      Mensagens 
+      Mensagens
     </div>
 
     <!-- Div dos Contatos -->
     <div class="col-2 text-center mensagem-contatos">
-      
+
       <!-- Contato -->
       <div *ngFor = "let nome of contatos" class="contato">
         <!-- Foto do contato -->
@@ -25,37 +25,42 @@
 
     <!-- div da conversa -->
     <div class="col-10 text-center mensagem-body">
-      
+
       <!-- Mensagens -->
       <div class="mensagem-body-conversa">
 
-        <!-- mensagem do prof -->
+        <dl>
+        <dt>Mensagens</dt>
+        <dd *ngFor="let m of msgs">{{m}}</dd>
+        </dl>
+<!--
+
         <div class="mensagem-prof">
           <p>Teste de envio de mensagem do prof</p>
         </div>
 
-        <!-- mensagem do autor -->
+
         <div class="mensagem-aluno">
             <p>Teste de envio de mensagem do aluno</p>
-        </div>
+        </div> -->
 
       </div>
 
+
       <!-- Evio de mensagens -->
       <div class="mensagem-body-envio-mensagem">
-        
+
         <div class="envio-de-mensagem-incone">
           <i class="enviar-foto material-icons">add_a_photo</i>
           <i class="enviar-video material-icons">video_call</i>
         </div>
 
         <div class="envio-de-mensagem">
-          <input type="text" class="input-mensagem">
-          <button>Enviar!</button>
+          <input class="input-mensagem" [(ngModel)]="chatInput">
+          <button (click)="sendButtonClick()">Enviar!</button>
         </div>
 
       </div>
-
     </div>
 
   </div>
