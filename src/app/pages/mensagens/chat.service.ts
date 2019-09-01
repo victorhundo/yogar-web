@@ -16,7 +16,7 @@ export class ChatService {
   }
 
   // EMITTER
-  sendMessage(msg: object) {
+  sendMessage(msg: any) {
     this.socket.emit('sendMessage', msg);
   }
 
