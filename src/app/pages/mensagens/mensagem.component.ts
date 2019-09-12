@@ -13,6 +13,7 @@ export class MensagemComponent implements OnInit {
   chatInput: string;
 
   constructor(private chatService: ChatService) {
+    this.chatService.joinRoom('salasecreta2')
     this.chatService.getMessage(this.msgs)
   }
 
@@ -20,7 +21,11 @@ export class MensagemComponent implements OnInit {
 
   sendButtonClick() {
     //console.log(this.msg)
-    this.chatService.sendMessage(this.chatInput);
+    var msg = {
+      room: 'salasecreta2',
+      msg: this.chatInput,
+    }
+    this.chatService.sendMessage(msg);
     this.chatInput = "";
   }
 
