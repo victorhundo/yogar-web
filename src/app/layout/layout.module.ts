@@ -14,3 +14,4 @@ import { AppRoutingModule } from '../app-routing.module';
   exports :[ HomeComponent]
 })
 export class LayoutModule { }
+// HAHAHAHAHAHAHA
