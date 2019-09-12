@@ -12,6 +12,11 @@ import { TokenInterceptor } from './token.interceptor';
 import { InitialComponent } from './initial/initial.component';
 import { MensagensModule } from './mensagens/mensagens.module';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -26,6 +31,9 @@ export function tokenGetter() {
     LicoesModule,
     FeedModule,
     MensagensModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

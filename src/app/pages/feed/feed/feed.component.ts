@@ -3,7 +3,7 @@ import { Post } from './../../../models/post.model';
 import { FeedService } from './../feed.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+// import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-feed',

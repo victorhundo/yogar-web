@@ -7,17 +7,25 @@ import { ProfessorService } from './professor-service.service';
 import { FormsModule } from '@angular/forms';
 import { UpdateProfessorComponent } from './update-professor/update-professor.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [ViewProfessorComponent, RegisterProfessorComponent, ListProfessorComponent, UpdateProfessorComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
   ],
   exports: [
     ViewProfessorComponent,
     ListProfessorComponent,
     RegisterProfessorComponent,
-    UpdateProfessorComponent
+    UpdateProfessorComponent,
   ],
   providers: [ProfessorService]
 })
