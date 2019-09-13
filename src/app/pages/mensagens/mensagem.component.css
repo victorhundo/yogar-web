@@ -33,3 +33,19 @@
   width: 100%;
   overflow-y: scroll;
 }
+
+.msgBox {
+  width: 50%;
+  margin: 10px;
+  top:40px;
+}
+
+#myself.msgBox {
+  position: absolute;
+  background-color: #dcf8c6;
+  right: 0;
+}
+
+.msgBoxItem {
+  margin-bottom: 60px;
+}

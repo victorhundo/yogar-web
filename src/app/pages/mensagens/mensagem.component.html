@@ -1,6 +1,8 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened style="width:300px">
-
+  <mat-sidenav mode="side" opened style="width:150px">
+    <mat-list role="list" style="margin-bottom:10px;">
+      <mat-list-item> Lista de Alunos </mat-list-item>
+    </mat-list>
     <mat-accordion>
       <mat-expansion-panel  *ngFor = "let chat of chats">
         <mat-expansion-panel-header>
@@ -18,11 +20,23 @@
   <mat-sidenav-content>
 
     <mat-list role="list" class="chat" #scrollMe>
-    <mat-list-item *ngFor="let m of chatActivated">
+      <div style="width:100%;position:relative">
+
+    <mat-list-item *ngFor="let m of chatActivated" class="msgBoxItem">
+
+      <mat-card class="msgBox" *ngIf="m.remetente == 'aluno'">
       <mat-icon mat-list-icon>account_box</mat-icon>
       <h4 mat-line>{{m.alunoNome}}</h4>
       <p mat-line> {{m.msg}} </p>
+      </mat-card>
+
+      <mat-card id="myself" class="msgBox" *ngIf="m.remetente != 'aluno'">
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <h4 mat-line>você</h4>
+      <p mat-line> {{m.msg}} </p>
+      </mat-card>
     </mat-list-item>
+      </div>
     </mat-list>
     <mat-card class="inputCard" *ngIf="chatActivated.length > 0">
       <mat-form-field class="myinput">
