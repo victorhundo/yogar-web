@@ -10,14 +10,18 @@
     <div class="col-2 text-center mensagem-contatos">
 
       <!-- Contato -->
-      <div *ngFor = "let nome of contatos" class="contato">
+      <div *ngFor = "let chat of chats" class="contato">
         <!-- Foto do contato -->
         <div class="contato-foto">
           <img src="https://image.flaticon.com/icons/png/512/57/57134.png" alt="foto do perfil" class="contato-foto-img">
         </div>
         <!-- Nome do contato -->
         <div class="contato-nome">
-          <p>{{nome}}</p>
+          <p>{{chat.alunoNome}}</p>
+        </div>
+
+        <div *ngFor = "let f of chat.chats" class="contato">
+          <button (click)="activeChat(f.uuid)">{{f.licaoTitulo}}</button>
         </div>
       </div>
 
@@ -31,7 +35,7 @@
 
         <dl>
         <dt>Mensagens</dt>
-        <dd *ngFor="let m of msgs">{{m}}</dd>
+        <dd *ngFor="let m of chatActivated">{{m.msg}}</dd>
         </dl>
 <!--
 
