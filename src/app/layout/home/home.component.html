@@ -1,126 +1,92 @@
-<div class="home-container container-fluid">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" [mode]="over" style="width:300px;">
 
-  <div class="row no-gutters">
-
-    <div class="nav-bar col-12">
-
-      <div class="nav-bar-logo">
-        <img src="./../../../assets/favicon.ico" alt="icon">
-      </div>
-
-      <div class="nav-bar-middle">
-          <p>Yogar - {{auth.getUserName()}}</p>
-      </div>
-
-      <div class="nav-bar-auth">
-        <a *ngIf="isProf()" (click)="edit()">Minhas informações</a>
-        <a (click)="logout()">{{isLogged()?'Sair':'Entrar'}}</a>
-      </div>
-
-    </div>
-  
-    <div class="side-bar col-2">
-
-      <!-- Item de lições exclusivas pra adm -->
-      <div *ngIf="auth.isAdm()" class="list-group">
-        <button (click)="licoesFlag = !licoesFlag" type="button" class="list-group-item list-group-item-action">
+    <mat-accordion *ngIf="auth.isAdm()">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           Lições
-        </button>
-        <div *ngIf="licoesFlag">
-            <div class="list-group">
-                <button routerLink="" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Ver Todas
-                </button>
-                <button routerLink="" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Lista Para Aprovação
-                </button>
-              </div>
-        </div>   
-      </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <a mat-list-item routerLink="" (click)="sidenav.toggle()"> <h3 matLine>Ver Todas</h3></a>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Professores
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <a mat-list-item routerLink="list/professor" (click)="sidenav.toggle()"> <h3 matLine>Ver Todos</h3></a>
+        <a mat-list-item routerLink="new/professor" (click)="sidenav.toggle()"> <h3 matLine>Registrar Novo Professor</h3></a>
+      </mat-list>
+    </mat-expansion-panel>
+    </mat-accordion>
 
-      <!-- Item de feed exclusiva para adm
-      <div *ngIf="auth.isAdm()" class="list-group">
-        <button (click)="feedFlag = !feedFlag" type="button" class="list-group-item list-group-item-action">
+    <mat-accordion *ngIf="auth.isProf()">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Home
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <a mat-list-item routerLink="" (click)="sidenav.toggle()"> <h3 matLine>Página Inicial</h3></a>
+        </mat-list>
+      </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           Feed
-        </button>
-        <div *ngIf="feedFlag">
-            <div class="list-group">
-                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Ver Feed
-                </button>
-                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Lista Para Aprovação
-                </button>
-              </div>
-        </div>   
-      </div> -->
-
-      <!-- Item de professores exclusivos para adm -->
-      <div *ngIf="auth.isAdm()" class="list-group">
-          <button (click)="professorFlag = !professorFlag" type="button" class="list-group-item list-group-item-action">
-            Professores
-          </button>
-          <div *ngIf="professorFlag">
-              <div class="list-group">
-                  <button routerLink="list/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                    Ver Todos
-                  </button>
-                  <button routerLink="new/professor" type="button" class="list-group-item list-group-item-action sub-list-item">
-                    Registrar Novo Professor
-                  </button>
-                </div>
-          </div>   
-      </div>
-      
-      <!-- Item de feed exclusivo para prof -->
-      <div *ngIf="auth.isProf()" class="list-group">
-        <button (click)="professorFeedFlag = !professorFeedFlag" type="button" class="list-group-item list-group-item-action">
-          Feed
-        </button>
-        <div *ngIf="professorFeedFlag">
-            <div class="list-group">
-                <button routerLink="list/post" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Ver Feed
-                </button>
-                <button routerLink="new/post" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Adicionar Post
-                </button>
-              </div>
-        </div>   
-      </div>
-
-      <!-- Item de licao exclusivo para prof -->
-      <div *ngIf="auth.isProf()" class="list-group">
-        <button (click)="professorLicaoFlag = !professorLicaoFlag" type="button" class="list-group-item list-group-item-action">
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <a mat-list-item routerLink="list/post" (click)="sidenav.toggle()"> <h3 matLine>Ver Feed</h3></a>
+      </mat-list>
+      <mat-list role="list">
+        <a mat-list-item routerLink="new/post" (click)="sidenav.toggle()"> <h3 matLine>Adicionar Post</h3></a>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           Lições
-        </button>
-        <div *ngIf="professorLicaoFlag">
-            <div class="list-group">
-                <button routerLink="list/licao" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Ver Lições
-                </button>
-                <button routerLink="new/licao" type="button" class="list-group-item list-group-item-action sub-list-item">
-                  Adicionar Lição
-                </button>
-              </div>
-        </div>   
-      </div>
-
-      <!-- Item de Mensagem exclusivo para prof -->
-      <div *ngIf="auth.isProf()" class="list-group">
-        <button  type="button" routerLink="mensagens" class="list-group-item list-group-item-action">
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <a mat-list-item routerLink="list/licao" (click)="sidenav.toggle()"> <h3 matLine>Ver Todas</h3></a>
+        <a mat-list-item routerLink="new/licao" (click)="sidenav.toggle()"> <h3 matLine>Adicionar Lição</h3></a>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           Mensagens
-        </button>   
-      </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <a mat-list-item routerLink="mensagens" (click)="sidenav.toggle()"> <h3 matLine>Ver Mensagens</h3></a>
+      </mat-list>
+    </mat-expansion-panel>
+    </mat-accordion>
 
-    </div>
-  
-    <div class="page-container col-10">
-      <!-- Aqui ficam as paginas dinámicas -->
-      <router-outlet></router-outlet>
-      
-    </div>
 
-  </div>
+  </mat-sidenav>
 
-</div>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="my-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Yogar Admin</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button color="warn" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet> <!-- Aqui ficam as paginas dinámicas -->
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

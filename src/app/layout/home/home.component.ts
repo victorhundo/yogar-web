@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   professorFlag = false;
+  opened: boolean;
 
   constructor(private auth: AuthService,
               private route: Router) { }
