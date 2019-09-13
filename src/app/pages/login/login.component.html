@@ -1,4 +1,26 @@
-  <button mat-raised-button color="primary">Primary</button>
+<mat-card class="login-box">
+ <img mat-card-image src="http://yogar.splab.ufcg.edu.br/_static/yogar.png" style="margin-top:20px;" >
+<mat-card-content>
+  <div class="example-container">
+
+  <mat-form-field  style="font-size: larger;">
+    <input matInput placeholder="Usuário"  [(ngModel)]="userLogin.username">
+  </mat-form-field>
+
+  <mat-form-field style="font-size:larger;">
+    <input matInput placeholder="Senha" type="password"  [(ngModel)]="userLogin.senha" >
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="login()">Entrar</button>
+  </div>
+
+</mat-card-content>
+</mat-card>
+
+
+
+
+  <!-- <button mat-raised-button color="primary">Primary</button>
 
 <div class="login-container container-fluid">
 
@@ -39,4 +61,4 @@
   </div>
 
 
-</div>
+</div> -->
