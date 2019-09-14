@@ -3,7 +3,8 @@ import { Post } from './../../../models/post.model';
 import { FeedService } from './../feed.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { API } from 'src/app/API';
+// import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-feed',
@@ -17,6 +18,7 @@ export class FeedComponent implements OnInit {
   // flags para deleção
   deleteModalFlag = false;
   deleteUuid: number;
+  API_URL_IMG: string;
 
   constructor(private feedService: FeedService,
               private router: Router,
@@ -26,6 +28,8 @@ export class FeedComponent implements OnInit {
     this.feedService.getPostagens().subscribe(result => {
       console.log(result);
       this.listaPost = result;
+      var uuid = JSON.parse(localStorage.getItem('user'))['uuid'];
+      this.API_URL_IMG = `${API}/professores/${uuid}/posts/`
     });
   }
 
@@ -38,9 +42,9 @@ export class FeedComponent implements OnInit {
     this.deleteModalFlag = !this.deleteModalFlag;
   }
 
-  delete() {
-    console.log(this.deleteUuid);
-    this.feedService.delete(this.deleteUuid).subscribe( resp =>{
+  delete(uuid: number) {
+    console.log(uuid);
+    this.feedService.delete(uuid).subscribe( resp =>{
       console.log(resp);
       this.deleteModalFlagF(undefined);
       this.ngOnInit();
