@@ -29,11 +29,12 @@ export class EditPostComponent implements OnInit {
   atualizar() {
 // tslint:disable-next-line: forin
     for (const val in this.post) {
+      if (val == 'data' || val == 'id') continue;
       console.log(val);
       const valStr = val.toString;
       let value = {
-        '"campo"': val,
-        '"valor"': this.post[val]
+        "campo": val,
+        "valor": this.post[val]
       };
       console.log(value);
       this.feddService.atualizar(this.post.id,value).subscribe(
