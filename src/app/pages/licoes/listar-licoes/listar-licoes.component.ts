@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Licao } from 'src/app/models/licoes.model';
 import { post } from 'selenium-webdriver/http';
+import { API } from 'src/app/API';
+
 
 @Component({
   selector: 'app-listar-licoes',
@@ -15,6 +17,7 @@ export class ListarLicoesComponent implements OnInit {
   licoes: Licao[] = [];
   deleteModalFlag = false;
   deleteUuid: number;
+  API_URL_VIDEO: string;
 
   constructor(private router: Router,
               private licoesService: LicoesService,
@@ -22,6 +25,8 @@ export class ListarLicoesComponent implements OnInit {
 
   ngOnInit() {
     this.licoesService.getAll().subscribe(result => {
+      var uuid = JSON.parse(localStorage.getItem('user'))['uuid'];
+      this.API_URL_VIDEO = `${API}/professores/${uuid}/licoes/`
       this.licoes = result;
       console.log(result);
     });
@@ -36,9 +41,9 @@ export class ListarLicoesComponent implements OnInit {
     this.deleteModalFlag = !this.deleteModalFlag;
   }
 
-  delete() {
-    console.log(this.deleteUuid);
-    this.licoesService.delete(this.deleteUuid).subscribe(result =>{
+  delete(uiid: number) {
+    console.log(uiid);
+    this.licoesService.delete(uiid).subscribe(result =>{
       console.log(result);
       this.deleteModalFlagF(undefined);
       this.ngOnInit();

@@ -1,31 +1,12 @@
-<div class="new-post-container">
+<mat-card class="mycard">
+  <mat-card-title>Novo Post</mat-card-title>
+    <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="post.titulo" name="titulo" id="titulo" placeholder="Títutlo">
+    </mat-form-field>
 
-  <div class="header">
-    <h1>Atualização De Post</h1>
-  </div>
+    <mat-form-field class="example-full-width">
+       <textarea matInput [(ngModel)]="post.texto"  name="texto" id="texto" placeholder="Conteúdo"></textarea>
+    </mat-form-field>
 
-  <div class="container maxWidth">
-    <div class="row borderCard">
-
-      <div class="col-12 form-row">
-        <div class="form-group col-12">
-          <label for="titulo">Título</label>
-          <input [(ngModel)]="post.titulo" class="form-control" type="text" name="titulo" id="titulo">
-        </div>
-    
-        <div class="form-group col-12">
-          <label for="nome">Conteúdo</label>
-          <textarea [(ngModel)]="post.texto" class="form-control" type="text" name="conteudo" id="conteudo"></textarea>
-          <p *ngIf="postAddFlag">Post Autalizado com Sucesso! Publique outro!</p>
-        </div>
-    
-        <div class="form-group col-12">
-          <button (click)="atualizar()" type="button" class="btn btn-primary">Atualizar</button>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-</div>
+    <button mat-raised-button color="primary"  (click)="atualizar()" class="myBtn">Publicar</button>
+</mat-card>

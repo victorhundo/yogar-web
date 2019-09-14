@@ -1,4 +1,4 @@
-.login-container{
+/* .login-container{
     height: 100%;
     width: 100%;
     padding: 0;
@@ -35,4 +35,37 @@ img{
     width: 49%;
     border-left: solid rgb(255, 255, 255) 1px;
 
+} */
+
+
+.login-box {
+  width: 50%;
+  height: 400px;
+
+  position:absolute; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin:auto;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.mat-card {
+  text-align: center;
+}
+
+img {
+  margin-top: 20px;
+  width: 310px;
+}
+
+button {
+  background-color: #bb8db0;
 }

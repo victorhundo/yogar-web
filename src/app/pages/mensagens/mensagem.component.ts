@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit} from '@angular/core';
 import { ChatService } from './chat.service';
 import { Observable } from 'rxjs';
+import { timeout } from 'rxjs/operators';
 
 
 @Component({
@@ -16,6 +17,11 @@ export class MensagemComponent implements OnInit {
   chatIdActivated: string;
   uuidProfessor: string;
   msg: any;
+  @ViewChild('scrollMe', {read: ElementRef, static: true}) myScrollContainer: ElementRef;
+
+  ngOnInit() {
+    this.scrollToBottom();
+  }
 
   constructor(private chatService: ChatService) {
     this.chatService.joinRoom('salasecreta2');
@@ -29,6 +35,12 @@ export class MensagemComponent implements OnInit {
   }
 
   msgs:string[] = [];
+
+  scrollToBottom(): void {
+        try {
+            this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        } catch(err) { console.log(err)}
+    }
 
   activeChat(id){
     var results: Observable<any> = this.chatService.getMessageSave(id);
@@ -47,7 +59,12 @@ export class MensagemComponent implements OnInit {
         licaoTitulo: msgInfo["licaoTitulo"],
       }
       this.chatService.getMessage(this.chatActivated);
+      setTimeout(() => {  this.scrollToBottom(); },10)
     })
+  }
+
+  baixo(){
+    this.scrollToBottom();
   }
 
   sendButtonClick() {
@@ -57,9 +74,6 @@ export class MensagemComponent implements OnInit {
     this.msg["msg"]  = this.chatInput;
     this.chatService.sendMessage(this.msg);
     this.chatInput = "";
-  }
-
-  ngOnInit() {
   }
 
 }

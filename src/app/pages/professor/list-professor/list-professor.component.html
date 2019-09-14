@@ -1,30 +1,50 @@
-<div class="list-professor-container">
-  
-  <div class="header">
-    <h1>Lista de Professores Do Yogar</h1>
-  </div>
+<mat-card style="margin:80px; margin-top:30px; text-align:center">Professores</mat-card>
+<div class="bg">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <div class="list">
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center"
-      *ngFor="let professor of professores">
-        {{professor.primeiroNome}}
-        <div>
-            <i (click)="routerTo('view/professor/',professor.uuid)" class="material-icons">visibility</i>
-            <i (click)="deleteModalFlagF(professor.uuid)" class="material-icons">delete</i>
-        </div>
-      </li>          
-    </ul>
-  </div>
+  <!-- Position Column -->
+  <ng-container matColumnDef="Username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
 
-  <div *ngIf="deleteModalFlag" class="card confirm-delete">
-    <div class="card-header">
-      <h5>Deseja mesmo deletar o Professor?</h5>
-    </div>
-    <div class="card-body">
-      <button (click)="delete()" class="btn btn-primary delete-button">Sim</button>
-      <button (click)="deleteModalFlagF()" class="btn btn-primary">Não</button>
-    </div>
-  </div>
+  <!-- Name Column -->
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
 
+  <!-- Name Column -->
+  <ng-container matColumnDef="Editar">
+    <th mat-header-cell *matHeaderCellDef> Editar </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="routerTo('view/professor/',element.uuid)">
+          <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Remover">
+    <th mat-header-cell *matHeaderCellDef> Remover </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="deleteModalFlagF(element.uuid)">
+          <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 </div>
+
+
+
+  <mat-card *ngIf="deleteModalFlag" class="dialog">
+    <mat-card-title>Deseja mesmo deletar o Professor?</mat-card-title>
+    <div class="card-body">
+      <button (click)="delete()" mat-raised-button color="warn">Sim</button>
+      <button (click)="deleteModalFlagF()" mat-raised-button color="primary">Não</button>
+    </div>
+  </mat-card>

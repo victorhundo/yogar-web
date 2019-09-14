@@ -1,71 +1,60 @@
-<div class="new-licao-container">
+<mat-card class="mycard">
+  <mat-card-title>Nova Lição</mat-card-title>
+  <form class="example-form" [formGroup]="licaoForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Titulo" formControlName="titulo" id="titulo">
+    </mat-form-field>
 
-  <div class="header">
-    <h1>Nova Lição</h1>
-  </div>
-
-  <form [formGroup]="licaoForm" (ngSubmit)="onSubmit()">
-    <div class="container maxWidth">
-      <div class="row borderCard">
-
-        <div class="col-12 form-row">
-
-          <div class="form-group col-7">
-            <label for="titulo">Título</label>
-            <input  class="form-control" type="text" formControlName="titulo" id="titulo">
-          </div>
-
-          <div class="form-group col-2">
-            <label for="nivel">Nível</label>
-            <input  class="form-control" type="number" formControlName="nivel" id="nivel">
-
-          </div>
-
-          <div class="form-group col-2">
-            <label for="recompensa">Recompensa</label>
-            <input  class="form-control" type="number" formControlName="recompensa" id="recomepnsa">
-          </div>
-
-          <div class="form-group col-1">
-            <label for="premium">Premium</label>
-            <input  class="form-control" type="checkbox" formControlName="ehPremium" id="premium">
-          </div>
-
-          <div class="form-group col-12">
-            <label for="tag">Tags</label>
-            <input  class="form-control" type="text" formControlName="tag" id="tag">
-          </div>
-
-          <div class="form-group col-12">
-          <label for="tag">Desafio:</label>
-          <select formControlName="desafio">
-            <option *ngFor="let desafio of desafios" value= {{desafio.nome}}>
-              {{desafio.nome}}
-            </option>
-          </select>
-          </div>
-
-          <div class="form-group col-12">
-            <label for="descricao">Descrição</label>
-            <textarea  class="form-control" type="text" formControlName="descricao" id="descricao"></textarea>
-          </div>
-
-          <div class="form-group col-12">
-            <label for="aula">Aula</label>
-            <p>Atenção:O arquivo não pode ultrapassar os 30min e os 50Mb</p>
-            <input type="file" class="form-control" id="aula" (change)="onFileSelect($event)">
-
-          </div>
-
-          <div class="form-group col-12">
-            <p *ngIf="sucessoFlag">Sua Lição foi enviada para o adminstrador com sucesso! Envie outra</p>
-            <button  type="submit" class="btn btn-primary">Publicar</button>
-          </div>
-
-        </div>
-
-      </div>
+    <div style="display: flex;">
+      <div style="padding:14px; padding-left:0px">Nivel: </div>
+      <mat-slider style="width:100%"
+      class="example-margin"
+      [max]="10"
+      [min]="1"
+      [step]="1"
+      [thumbLabel]=true
+      formControlName="nivel">
+      </mat-slider>
     </div>
-  </form>
 
-</div>
+    <div style="display: flex; margin-bottom:10px;">
+      <div style="padding:14px; padding-left:0px">Recompensa: </div>
+      <mat-slider style="width:100%"
+      class="example-margin"
+      [max]="100"
+      [min]="10"
+      [step]="10"
+      [thumbLabel]=true
+      formControlName="recompensa">
+      </mat-slider>
+    </div>
+    <!-- <mat-form-field class="example-full-width">
+      <input matInput placeholder="Recompensa" type="number" formControlName="recompensa" id="recomepnsa">
+    </mat-form-field> -->
+
+    <mat-checkbox formControlName="ehPremium" id="premium"> Premium </mat-checkbox>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Tag" formControlName="tag" id="tag">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Desafio</mat-label>
+      <mat-select formControlName="desafio">
+        <mat-option *ngFor="let desafio of desafios" value= {{desafio.nome}}>
+          {{desafio.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+       <textarea matInput placeholder="Descrição" formControlName="descricao" id="descricao"></textarea>
+    </mat-form-field>
+
+    <span> Video </span>
+    <input type="file"  id="aula" (change)="onFileSelect($event)">
+
+
+    <button mat-raised-button color="primary" type="submit" class="myBtn">Publicar</button>
+  </form>
+</mat-card>
