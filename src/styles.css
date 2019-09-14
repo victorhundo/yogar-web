@@ -4,3 +4,9 @@
 body {
   font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 }
+
+
+/* Isso tá aqui porque tá dando conflito com o bootstrap, é uma classe de mat-video */
+.progress {
+  background-color: transparent !important;
+}

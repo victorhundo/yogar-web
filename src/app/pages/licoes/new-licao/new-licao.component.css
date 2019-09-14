@@ -1,4 +1,40 @@
-.new-licao-container{
+.bg {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+}
+
+.mycard {
+  position: absolute;
+  top: 60px;
+  margin: 30px;
+  height: 590px;
+  width: 80%;
+}
+
+.myBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.register-professor-container{
     height: 100%;
     width: 99%;
     margin-left: 9px;
@@ -6,8 +42,8 @@
 }
 
 .header{
+    margin: 20px;
     text-align: center;
-    padding-bottom: 30px;
 }
 
 .borderCard{
@@ -30,6 +66,21 @@ button:hover{
 .maxWidth{
     max-width: 100%;
 }
-textarea{
-    height: 200px;
+
+.confere{
+    font-size: 25px;
+    background-color: inherit;
+    border: none;
+}
+
+.button-disabled{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
+}
+
+.button-disabled:hover{
+    float: right;
+    background-color: rgb(191, 157, 223);
+    border-color: rgb(178, 99, 209);
 }
