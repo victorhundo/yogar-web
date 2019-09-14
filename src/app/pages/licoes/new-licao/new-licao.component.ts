@@ -28,14 +28,22 @@ export class NewLicaoComponent implements OnInit {
 
     this.licaoForm = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
-      nivel: new FormControl('', [Validators.required]),
-      recompensa: new FormControl('', [Validators.required]),
+      nivel: new FormControl(1, [Validators.required]),
+      recompensa: new FormControl(1, [Validators.required]),
       ehPremium: new FormControl('', [Validators.required]),
       tag: new FormControl('', [Validators.required]),
       desafio: new FormControl('', [Validators.required]),
       descricao: new FormControl('', Validators.required),
       theFile: new FormControl(null,Validators.required)
     });
+  }
+
+  getRecopensa() {
+    return this.licaoForm.get('recompensa').value
+  }
+
+  getNivel() {
+    return this.licaoForm.get('nivel').value
   }
 
   onFileSelect( event) {

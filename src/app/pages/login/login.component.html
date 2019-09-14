@@ -1,40 +1,17 @@
-<div class="login-container container-fluid">
+<mat-card class="login-box">
+ <img mat-card-image src="http://yogar.splab.ufcg.edu.br/_static/yogar.png" style="margin-top:20px;" >
+<mat-card-content>
+  <div class="example-container">
 
-  <div class="row">
+  <mat-form-field  style="font-size: larger;">
+    <input matInput placeholder="Usuário"  [(ngModel)]="userLogin.username">
+  </mat-form-field>
 
-    <div class="col-4"></div>
-    
-    <div class="col-4 card login-card">
-      
-      <div class="login-card-img">
-        <img src="./../../../assets/image9.png" alt="Yogar logo">
-      </div>
+  <mat-form-field style="font-size:larger;">
+    <input matInput placeholder="Senha" type="password"  [(ngModel)]="userLogin.senha" >
+  </mat-form-field>
 
-      <div class="login-card-form">
-
-        <div class="form-group">
-          <label for="login">Login</label>
-          <input [(ngModel)]="userLogin.username" class="form-control" type="text" name="login" id="login">
-        </div>
-
-        <div class="form-group">
-            <label for="login">Senha</label>
-            <input [(ngModel)]="userLogin.senha" class="form-control" type="password" name="password" id="password">
-        </div>
-
-
-        <div class="buttons">
-          <button (click)="login()" class="buttton-login" >Login</button>
-          <button class="buttton-password" >Esqueci a senha</button>
-        </div>
-
-      </div>
-
-    </div>
-    
-    <div class="col-4"></div>
-  
+  <button mat-raised-button color="primary" (click)="login()">Entrar</button>
   </div>
-
-
-</div>
+</mat-card-content>
+</mat-card>

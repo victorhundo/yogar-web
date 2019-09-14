@@ -1,71 +1,52 @@
-<div class="container mensagem-containter">
-  <div class="row no-gutters mensagem-containter">
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened style="width:150px">
+    <mat-list role="list" style="margin-bottom:10px;">
+      <mat-list-item> Lista de Alunos </mat-list-item>
+    </mat-list>
+    <mat-accordion>
+      <mat-expansion-panel  *ngFor = "let chat of chats">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{chat.alunoNome}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list" *ngFor = "let f of chat.chats">
+          <a mat-list-item href="mensagens#" (click)="activeChat(f.uuid)"> <h3 matLine>{{f.licaoTitulo}}</h3></a>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
 
-    <!-- Cabecalho -->
-    <div class="col-12 text-center mensagem-cabecalho">
-      Mensagens
-    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
 
-    <!-- Div dos Contatos -->
-    <div class="col-2 text-center mensagem-contatos">
+    <mat-list role="list" class="chat" #scrollMe>
+      <div style="width:100%;position:relative">
 
-      <!-- Contato -->
-      <div *ngFor = "let chat of chats" class="contato">
-        <!-- Foto do contato -->
-        <div class="contato-foto">
-          <img src="https://image.flaticon.com/icons/png/512/57/57134.png" alt="foto do perfil" class="contato-foto-img">
-        </div>
-        <!-- Nome do contato -->
-        <div class="contato-nome">
-          <p>{{chat.alunoNome}}</p>
-        </div>
+    <mat-list-item *ngFor="let m of chatActivated" class="msgBoxItem">
 
-        <div *ngFor = "let f of chat.chats" class="contato">
-          <button (click)="activeChat(f.uuid)">{{f.licaoTitulo}}</button>
-        </div>
+      <mat-card class="msgBox" *ngIf="m.remetente == 'aluno'">
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <h4 mat-line>{{m.alunoNome}}</h4>
+      <p mat-line> {{m.msg}} </p>
+      </mat-card>
+
+      <mat-card id="myself" class="msgBox" *ngIf="m.remetente != 'aluno'">
+      <mat-icon mat-list-icon>account_box</mat-icon>
+      <h4 mat-line>você</h4>
+      <p mat-line> {{m.msg}} </p>
+      </mat-card>
+    </mat-list-item>
       </div>
-
-    </div>
-
-    <!-- div da conversa -->
-    <div class="col-10 text-center mensagem-body">
-
-      <!-- Mensagens -->
-      <div class="mensagem-body-conversa">
-
-        <dl>
-        <dt>Mensagens</dt>
-        <dd *ngFor="let m of chatActivated">{{m.msg}}</dd>
-        </dl>
-<!--
-
-        <div class="mensagem-prof">
-          <p>Teste de envio de mensagem do prof</p>
-        </div>
-
-
-        <div class="mensagem-aluno">
-            <p>Teste de envio de mensagem do aluno</p>
-        </div> -->
-
+    </mat-list>
+    <mat-card class="inputCard" *ngIf="chatActivated.length > 0">
+      <mat-form-field class="myinput">
+        <input matInput placeholder="Digite algo ao aluno" [(ngModel)]="chatInput">
+      </mat-form-field>
+      <div style="width:100%; background-color:red; position:relative">
+      <button mat-raised-button color="primary" (click)="sendButtonClick()" class="btnEnviar">Enviar!</button>
       </div>
+    </mat-card>
 
 
-      <!-- Evio de mensagens -->
-      <div class="mensagem-body-envio-mensagem">
-
-        <div class="envio-de-mensagem-incone">
-          <i class="enviar-foto material-icons">add_a_photo</i>
-          <i class="enviar-video material-icons">video_call</i>
-        </div>
-
-        <div class="envio-de-mensagem">
-          <input class="input-mensagem" [(ngModel)]="chatInput">
-          <button (click)="sendButtonClick()">Enviar!</button>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
