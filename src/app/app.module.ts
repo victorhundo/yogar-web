@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     LayoutModule,
     PagesModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

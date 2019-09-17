@@ -47,7 +47,7 @@ export function tokenGetter() {
       }
     })
   ],
-  exports: [LoginComponent],
+  exports: [LoginComponent, InitialComponent],
   providers: [
     AuthService,
     {

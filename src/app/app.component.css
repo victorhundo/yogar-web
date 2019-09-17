@@ -104,3 +104,20 @@ body {
     margin-top: 7rem;
   }
 }
+
+body{
+  background-color: #ebe7e2;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.example-card {
+  flex:1;
+  max-width: 400px;
+  margin: 1%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
